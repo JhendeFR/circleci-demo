@@ -1,0 +1,22 @@
+{
+  "name": "circleci-demo",
+  "version": "1.0.0",
+  "description": "Demo de Pipeline CI/CD con CircleCI",
+  "main": "src/shipping.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest --ci --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0"
+  },
+  "jest-junit": {
+    "outputDirectory": "reports",
+    "outputName": "junit.xml"
+  }
+}
+
