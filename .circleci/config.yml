@@ -7,7 +7,7 @@ executors:
     working_directory: ~/project
 
 jobs:
-  # 1. ETAPA DE CONSTRUCCIÓN E INSTALACIÓN
+  # 1. INSTALACION
   build_and_install:
     executor: node-executor
     steps:
@@ -28,7 +28,7 @@ jobs:
           paths:
             - node_modules
 
-  # 2. ETAPA DE PRUEBAS UNITARIAS
+  # 2.PRUEBAS UNITARIAS
   run_tests:
     executor: node-executor
     steps:
@@ -44,19 +44,19 @@ jobs:
           path: reports
           destination: test-reports
 
-  # 3. ETAPA DE DESPLIEGUE A STAGING
+  # 3. DESPLIEGUE A STAGING
   deploy_staging:
     executor: node-executor
     steps:
       - checkout
       - run:
-          name: Despliegue simulado en Staging
+          name: Despliegue en Staging
           command: |
             echo "=== Despliegue en Ambiente de Staging ==="
             echo "Verificación de suite de pruebas completada exitosamente."
             echo "Artefacto listo para distribución. Commit: $CIRCLE_SHA1"
 
-# 4. ORQUESTACIÓN DEL PIPELINE
+# 4.PIPELINE
 workflows:
   version: 2
   logistics_pipeline:

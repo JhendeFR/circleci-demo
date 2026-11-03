@@ -17,7 +17,7 @@ function calculateShipping(weightKg, distanceKm, isExpress = false) {
   let total = BASE_FEE + (weightKg * RATE_PER_KG) + (distanceKm * RATE_PER_KM);
 
   if (isExpress) {
-    total = total * 1.5; // Recargo del 50% por servicio express
+    total = total * 0.5; // Recargo del 50% por servicio express
   }
 
   return Number(total.toFixed(2));
